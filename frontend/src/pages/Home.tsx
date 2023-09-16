@@ -1,29 +1,17 @@
 // src/pages/Home.tsx
 import React from 'react';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
-import './Home.css';
+import { Link } from 'react-router-dom'; // Import Link for routing
 
-const HomePage: React.FC = () => {
+const Home: React.FC = () => {
   return (
-    <div className="home-page">
-      <header>
-        <h1>Welcome to Our Website</h1>
-        <Link to="/Signup" className="sign-up-button">
-          Sign Up
-        </Link>
-      </header>
-      <main>
-        <p>
-          This is the content of our home page. Feel free to customize it to
-          fit your needs.
-        </p>
-      </main>
-      <footer>
-        <p>&copy; {new Date().getFullYear()} Your Website Name</p>
-      </footer>
-    </div>
+    <body>
+      <div className="content">
+        <h1>Welcome to our Website</h1>
+        <p>Discover amazing features and services.</p>
+        <Link to="/signup" className="button">Sign Up</Link>
+      </div>
+    </body>
   );
 };
 
-export default HomePage;
-
+export default Home;
