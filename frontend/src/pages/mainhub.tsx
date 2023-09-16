@@ -1,6 +1,5 @@
 // src/pages/MainHub.jsx
 import React, { useState, useEffect } from 'react';
-import './mainhub.css';
 
 const MainHub = () => {
   const [isChildMode, setIsChildMode] = useState(false);
@@ -80,7 +79,7 @@ const MainHub = () => {
           value={userInput}
           onChange={handleUserInputChange}
         />
-        <button className="submit-button" onClick={handlePromptSubmit}>
+        <button className="button" onClick={handlePromptSubmit}>
           Submit
         </button>
       </div>

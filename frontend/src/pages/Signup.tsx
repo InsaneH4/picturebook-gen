@@ -7,7 +7,7 @@ function Signup() {
     <div>
       <h1>Sign Up</h1>
       <p>Sign up for our service here.</p>
-      <Link to="/mainhub" className="register-button">
+      <Link to="/mainhub" className="button">
           Register
         </Link>
     </div>
