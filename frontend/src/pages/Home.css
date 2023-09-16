@@ -39,3 +39,34 @@ p {
   background-color: #2980b9;
 }
 
+.sign-in-button {
+  padding: 10px 20px;
+  font-size: 1em;
+  border: none;
+  border-radius: 5px;
+  background-color: #3498db;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.sign-in-button:hover {
+  background-color: #2980b9;
+}
+
+/* Style for the "Sign Up" button */
+.sign-up-button {
+  padding: 10px 20px;
+  font-size: 1em;
+  border: none;
+  border-radius: 5px;
+  background-color: #27ae60; /* Adjust the color as needed */
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left: 10px; /* Add some spacing between buttons */
+}
+
+.sign-up-button:hover {
+  background-color: #219f52; /* Darker shade for hover effect */
+}
