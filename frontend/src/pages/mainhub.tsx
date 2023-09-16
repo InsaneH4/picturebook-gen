@@ -1,5 +1,6 @@
 // src/pages/MainHub.jsx
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const MainHub = () => {
   const [isChildMode, setIsChildMode] = useState(false);
@@ -46,9 +47,9 @@ const MainHub = () => {
   return (
     <div>
       <h1>Main Hub</h1>
-      <button onClick={toggleChildMode}>
-        {isChildMode ? 'Switch to Adult Mode' : 'Switch to Child Mode'}
-      </button>
+      <Link to="/ChildMode" className="button">
+          Switch to child mode
+        </Link>
 
       <div className="task-bar">
         <h2>Task Bar</h2>
