@@ -1,6 +1,6 @@
 import React from 'react';
 
-function childmode() {
+function Childmode() {
   return (
     <div>
       <h1>child mode</h1>
@@ -9,4 +9,4 @@ function childmode() {
   );
 };
 
-export default childmode;
+export default Childmode;
