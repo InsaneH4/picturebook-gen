@@ -1,15 +1,14 @@
 // src/pages/MainHub.jsx
-import React, { useState, useEffect } from 'react';
-import './styles.css';
-import { Link } from 'react-router-dom';
-
+import React, { useState, useEffect } from "react";
+import "./styles.css";
+import { Link } from "react-router-dom";
 
 const MainHub = () => {
-  const [isChildMode, setIsChildMode] = useState(false);
+  const [isChildMode, setIsChildMode, img, setImg] = useState(false);
   const [score, setScore] = useState(0);
   const [tasks, setTasks] = useState([
-    { id: 1, description: 'Complete homework', completed: false },
-    { id: 2, description: 'Read a book', completed: true },
+    { id: 1, description: "Complete homework", completed: false },
+    { id: 2, description: "Read a book", completed: true },
     // Add more tasks as needed
   ]);
 
@@ -21,8 +20,8 @@ const MainHub = () => {
     const userData = {
       score: 100, // Example score
       tasks: [
-        { id: 1, description: 'Learn a new skill', completed: false },
-        { id: 2, description: 'Exercise for 30 minutes', completed: true },
+        { id: 1, description: "Learn a new skill", completed: false },
+        { id: 2, description: "Exercise for 30 minutes", completed: true },
         // Add more tasks as needed
       ],
     };
@@ -33,15 +32,15 @@ const MainHub = () => {
   }, []);
 
   // State for the user's input
-  const [userInput, setUserInput] = useState('');
+  const [userInput, setUserInput] = useState("");
 
   const handleUserInputChange = (e) => {
     setUserInput(e.target.value);
   };
 
-  const handlePromptSubmit = () => {
+  const handlePromptSubmit = async () => {
     // Handle the submission of userInput here (e.g., send it to a server or perform an action)
-    console.log("User input submitted:");
+    console.log(userInput + " submitted");
     let imgArr: string[] = [];
     const response = await fetch(`http://localhost:5000/imagegen/${userInput}`);
     await response.json().then((data) => {
@@ -69,7 +68,12 @@ const MainHub = () => {
         <h2>Task List</h2>
         <ul>
           {tasks.map((task) => (
-            <li key={task.id} style={{ textDecoration: task.completed ? 'line-through' : 'none' }}>
+            <li
+              key={task.id}
+              style={{
+                textDecoration: task.completed ? "line-through" : "none",
+              }}
+            >
               {task.description}
             </li>
           ))}
