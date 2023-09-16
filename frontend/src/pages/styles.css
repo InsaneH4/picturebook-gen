@@ -5,36 +5,64 @@ body {
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @keyframes gradient {
   0% {
-      background-position: 0% 50%;
+    background-position: 0% 50%;
   }
-
   50% {
-      background-position: 100% 50%;
+    background-position: 100% 50%;
   }
-
   100% {
-      background-position: 0% 50%;
+    background-position: 0% 50%;
   }
+}
+
+.header {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.text {
+  font-size: 1.2em;
+  margin-bottom: 20px;
 }
 
 .button {
   color: white;
-  background-color: rgba(69, 123, 157, 0.7); /* Soft blue background color */
+  background-color: rgba(69, 123, 157, 0.7);
   padding: 10px 20px;
   text-decoration: none;
-  border-radius: 10px; /* Rounded corners for softness */
-  border: none; /* Remove button border */
+  border-radius: 10px;
+  border: none;
 }
 
+.button:hover {
+  background-color: rgba(69, 123, 157, 1);
+}
 
 .content {
   padding: 20px;
-  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
-  border-radius: 10px; /* Rounded corners for softness */
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
 }
 
-  
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-field {
+  width: 80%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: rgba(69, 123, 157, 0.7);
+}
