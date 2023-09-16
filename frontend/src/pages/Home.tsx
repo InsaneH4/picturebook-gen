@@ -10,7 +10,9 @@ const Home: React.FC = () => {
       <div className="content">
         <h1>Welcome to our Website</h1>
         <p>Discover amazing features and services.</p>
-        <Link to="/signup" className="button">Sign Up</Link>
+        <Link to="/signup" className="button">
+          Sign Up
+        </Link>
       </div>
     </body>
   );
