@@ -1,5 +1,7 @@
 import replicate
+from flask import Flask
 
+app = Flask(__name__)
 client = replicate.Client(api_token="r8_CLo7yb0uM3cYeHfPs1N7TyKme3Fg4z743YdrG")
 prompt = input("Enter prompt: ")
 result = client.run(
@@ -7,3 +9,12 @@ result = client.run(
     input={"prompt": prompt}
 )
 print(result)
+
+
+@app.route("/pictures")
+def pictures():
+    return {"pictures": result}
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
