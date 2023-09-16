@@ -22,23 +22,6 @@ body {
   }
 }
 
-.child-mode-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-.child-mode-header {
-  font-size: 2.5em;
-  margin-bottom: 20px;
-}
-
-.child-mode-prompt {
-  font-size: 1.2em;
-  margin-bottom: 10px;
-}
-
 .prompt-input {
   width: 80%;
   padding: 10px;
@@ -64,13 +47,6 @@ body {
   border: none;
   align-items: center;
   margin-left: 10px; /* Add margin between buttons */
-}
-
-/* Unique class for the "Main Hub" button */
-.main-hub-button {
-  position: absolute;
-  top: 20px;
-  right: 20px;
 }
 
 .button:hover {

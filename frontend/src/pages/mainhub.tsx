@@ -1,7 +1,7 @@
 // src/pages/MainHub.jsx
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import './styles.css';
+import { Link } from 'react-router-dom';
 
 
 const MainHub = () => {
@@ -45,9 +45,6 @@ const MainHub = () => {
   return (
     <div>
       <h1>Main Hub</h1>
-      <Link to="/ChildMode" className="button">
-          Switch to child mode
-        </Link>
 
       <div className="task-bar">
         <h2>Task Bar</h2>
@@ -78,12 +75,12 @@ const MainHub = () => {
           value={userInput}
           onChange={handleUserInputChange}
         />
-        <div className="main-hub-button">
-          <Link to="/mainhub" className="main-hub-button">
-            Go to Main Hub
+      </div>
+      <div className="button-group">
+          <Link to="/childmode" className="button">
+            Go to Child View
           </Link>
         </div>
-      </div>
     </div>
   );
 };
