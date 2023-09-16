@@ -6,12 +6,21 @@ const MainHub = () => {
   return (
     <div>
       {/* Input field for user prompt */}
-      <div className="prompt-form">
-        <h2>Learning Topic</h2>
-        <input
+      <div className="content">
+        <h1>
+          Learning Topic
+          <hr/>
+        </h1>
+        Parents, what are you hoping to teach your little one with this story?
+        <br/>
+        <br/>
+        <div>
+        <input className="prompt-input"
           type="text"
           placeholder="Learning to share, diversity, "
         />
+        </div>
+        <br/>
         <Link to="/childmode" className="button">
           Submit
         </Link>
