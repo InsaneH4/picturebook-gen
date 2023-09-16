@@ -1,5 +1,4 @@
-﻿# picturebook-gen
- ![](https://i.kym-cdn.com/photos/images/newsfeed/002/652/421/280.jpg)
+﻿# picturebook-gen 
 attributes:
 - Interactive story creation
     - Children actively contribute and shape the story through choices
