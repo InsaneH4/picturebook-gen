@@ -1,7 +1,7 @@
 // src/pages/MainHub.jsx
 import React from 'react';
 
-function mainhub() {
+function MainHub() {
   return (
     <div>
       <h1>Main Hub</h1>
@@ -10,4 +10,4 @@ function mainhub() {
   );
 }
 
-export default mainhub;
+export default MainHub;

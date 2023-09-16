@@ -1,44 +1,57 @@
 /* Home.css */
 
 /* Define styles for the container of your home page */
-.home-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+.home-page {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100vh;
+  padding: 20px; /* Added padding for spacing */
+  background: linear-gradient(45deg, #ff00b8, #7d00ff, #00ffcc, #00d4ff);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+  color: white;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
   }
-  
-  /* Style the heading */
-  .home-heading {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 20px;
+  50% {
+    background-position: 100% 50%;
   }
-  
-  /* Style paragraphs or content */
-  .home-content {
-    font-size: 1.2rem;
-    text-align: center;
-    max-width: 600px;
-    margin-bottom: 30px;
+  100% {
+    background-position: 0% 50%;
   }
-  
-  /* Style buttons or call-to-action elements */
-  .home-button {
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background-color 0.3s ease-in-out;
-  }
-  
-  .home-button:hover {
-    background-color: #0056b3;
-  }
-  
+}
+
+header {
+  display: flex;
+  justify-content: space-between; /* Aligns the button to the right */
+  width: 100%;
+  padding: 10px 0;
+}
+
+main, footer {
+  text-align: center;
+  padding: 20px;
+}
+
+footer {
+  margin-top: auto;
+}
+
+.sign-up-button {
+  padding: 10px 20px;
+  background-color: #ffffff;
+  color: #000000;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.sign-up-button:hover {
+  background-color: #f0f0f0;
+}
+
 
