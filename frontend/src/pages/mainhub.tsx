@@ -1,6 +1,8 @@
 // src/pages/MainHub.jsx
+// after login
 import React, { useState, useEffect } from 'react';
 import './mainhub.css';
+
 
 const MainHub = () => {
   const [isChildMode, setIsChildMode] = useState(false);
@@ -32,18 +34,6 @@ const MainHub = () => {
     setIsChildMode((prevMode) => !prevMode);
   };
 
-  // State for the user's input
-  const [userInput, setUserInput] = useState('');
-
-  const handleUserInputChange = (e) => {
-    setUserInput(e.target.value);
-  };
-
-  const handlePromptSubmit = () => {
-    // Handle the submission of userInput here (e.g., send it to a server or perform an action)
-    console.log('User input submitted:', userInput);
-  };
-
   return (
     <div>
       <h1>Main Hub</h1>
@@ -70,22 +60,9 @@ const MainHub = () => {
           ))}
         </ul>
       </div>
-
-      {/* Input field for user prompt */}
-      <div className="prompt-form">
-        <h2>Submit a Prompt</h2>
-        <input
-          type="text"
-          placeholder="Enter your prompt"
-          value={userInput}
-          onChange={handleUserInputChange}
-        />
-        <button className="submit-button" onClick={handlePromptSubmit}>
-          Submit
-        </button>
-      </div>
     </div>
   );
-};
+}
+
 
 export default MainHub;
