@@ -1,5 +1,10 @@
 /* Home.css */
 
+/* Reset the margin on the body element */
+body {
+  margin: 0;
+}
+
 /* Define styles for the container of your home page */
 .home-page {
   display: flex;
@@ -53,5 +58,3 @@ footer {
 .sign-up-button:hover {
   background-color: #f0f0f0;
 }
-
-
