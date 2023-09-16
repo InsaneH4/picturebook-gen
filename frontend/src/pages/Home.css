@@ -4,9 +4,10 @@
 .home-page {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   height: 100vh;
+  padding: 20px; /* Added padding for spacing */
   background: linear-gradient(45deg, #ff00b8, #7d00ff, #00ffcc, #00d4ff);
   background-size: 400% 400%;
   animation: gradientAnimation 15s ease infinite;
@@ -25,13 +26,32 @@
   }
 }
 
-header, main, footer {
+header {
+  display: flex;
+  justify-content: space-between; /* Aligns the button to the right */
+  width: 100%;
+  padding: 10px 0;
+}
+
+main, footer {
   text-align: center;
   padding: 20px;
 }
 
 footer {
   margin-top: auto;
+}
+
+.sign-up-button {
+  padding: 10px 20px;
+  background-color: #ffffff;
+  color: #000000;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.sign-up-button:hover {
+  background-color: #f0f0f0;
 }
 
 

@@ -1,13 +1,16 @@
 // src/pages/Home.tsx
-
 import React from 'react';
-import './Home.css'
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import './Home.css';
 
 const HomePage: React.FC = () => {
   return (
     <div className="home-page">
       <header>
-        <h1>Welcome to Picturebook Lite</h1>
+        <h1>Welcome to Our Website</h1>
+        <Link to="/Signup" className="sign-up-button">
+          Sign Up
+        </Link>
       </header>
       <main>
         <p>
@@ -16,10 +19,11 @@ const HomePage: React.FC = () => {
         </p>
       </main>
       <footer>
-        <p>&copy; {new Date().getFullYear()} Picturebook Lite</p>
+        <p>&copy; {new Date().getFullYear()} Your Website Name</p>
       </footer>
     </div>
   );
 };
 
 export default HomePage;
+
