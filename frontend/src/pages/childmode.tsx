@@ -13,18 +13,27 @@ function ChildMode() {
   return (
     <div className="child-mode-body">
       <div className="content">
-        <h1 className="child-mode-header">Child Mode</h1>
-        <p className="child-mode-prompt">Let's write a story about...</p>
-        <input
+        <h1>
+          Child Mode
+          <hr/>
+        </h1>
+        <div className="child-mode-prompt">
+          <h4>Let's write a story about...</h4>
+          Here's where we can describe your character. What do they look like? How do they behave?
+          <br/>
+          <br/>
+        <input className="prompt-input"
           type="text"
           placeholder="Finish the prompt"
           value={storyPrompt}
-          onChange={handlePromptChange}
-          className="prompt-input"
-        />
+          onChange={handlePromptChange}/>
+        </div>
         <div className="button-group">
           <Link to="/mainhub" className="button">
             Go to Main Hub
+          </Link>
+          <Link to="/mainhub" className="button">
+            Start
           </Link>
         </div>
       </div>

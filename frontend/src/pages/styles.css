@@ -10,6 +10,7 @@ body {
   align-items: center;
 }
 
+
 @keyframes gradient {
   0% {
     background-position: 0% 50%;
@@ -22,11 +23,15 @@ body {
   }
 }
 
+.child-mode-header {
+  justify-content: right;
+}
+
 .prompt-input {
   width: 80%;
   padding: 10px;
   border-radius: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #dbdbdb;
   margin-bottom: 20px;
   justify-content: center;
   align-items: center;
@@ -44,9 +49,10 @@ body {
   padding: 10px 20px;
   text-decoration: none;
   border-radius: 10px;
+  justify-content: center;
   border: none;
   align-items: center;
-  margin-left: 10px; /* Add margin between buttons */
+  margin-right: 10px; /* Add margin between buttons */
 }
 
 .button:hover {
@@ -54,8 +60,23 @@ body {
 }
 
 .content {
-  padding: 20px;
+  width: 300px;
+  padding: 30px;
+  left: 20px;
+  top: 0;
+  justify-content: left;
   background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 10px;
+  position: absolute;
+  height: 100vh; /* Set the height to 100% of the viewport height */
 }
 
+.content:before {
+  content: "";
+  position: absolute;
+  justify-content: left;
+  top: 0;
+  left: 0; /* Adjust this value to control the width of the ribbon */
+  width: 15px; /* Adjust this value to control the width of the ribbon */
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8); /* Match the background color */
+}
