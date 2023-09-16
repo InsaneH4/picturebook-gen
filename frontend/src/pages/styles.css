@@ -1,0 +1,21 @@
+/* styles.css */
+
+/* Common styles */
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Button style */
+  .button {
+    color: white;
+    background-color: blue;
+    padding: 10px 20px;
+    text-decoration: none;
+  }
+  
+  /* Page-specific styles */
+  .content {
+    background-color: #f0f0f0;
+    padding: 20px;
+  }
+  

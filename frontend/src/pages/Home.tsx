@@ -1,6 +1,8 @@
 // src/pages/Home.tsx
 import React from 'react';
 import { Link } from 'react-router-dom'; // Import Link for routing
+import './styles.css';
+
 
 const Home: React.FC = () => {
   return (
