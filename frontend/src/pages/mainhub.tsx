@@ -12,6 +12,8 @@ const MainHub = () => {
     // Add more tasks as needed
   ]);
 
+  let imgUrls: string[] = [];
+
   // Load user data and update the score
   useEffect(() => {
     // Fetch user data from storage or an API (replace with actual data retrieval)
@@ -43,12 +45,14 @@ const MainHub = () => {
   const handlePromptSubmit = async () => {
     // Handle the submission of userInput here (e.g., send it to a server or perform an action)
     console.log("User input submitted:");
-    let imgArr: never[] = [];
+    let imgArr: string[] = [];
     const response = await fetch(`http://localhost:5000/imagegen/${userInput}`);
-    await response.json().then((data) => {      
+    await response.json().then((data) => {
       imgArr = data["images"];
-    });    
-    console.log(imgArr);
+    });
+    //console.log(imgArr);
+    imgUrls = imgArr;
+    return imgArr;
   };
 
   return (
@@ -92,9 +96,21 @@ const MainHub = () => {
           value={userInput}
           onChange={handleUserInputChange}
         />
-        <button className="button" onClick={handlePromptSubmit}>
+        <button
+          className="button"
+          onClick={async () => {
+            await handlePromptSubmit();
+            console.log(imgUrls);
+          }}
+        >
           Submit
         </button>
+        <img
+          id="aiImage"
+          width={250}
+          height={250}
+          src="https://pbxt.replicate.delivery/JtLeyaICNcT5LK0BNbBB0Jxu5M26HcsTnenxpCePHWTjvtJjA/out-0.png"
+        />
       </div>
     </div>
   );
