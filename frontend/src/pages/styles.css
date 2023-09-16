@@ -22,14 +22,37 @@ body {
   }
 }
 
-.header {
+.child-mode-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.child-mode-header {
   font-size: 2.5em;
   margin-bottom: 20px;
 }
 
-.text {
+.child-mode-prompt {
   font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.prompt-input {
+  width: 80%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
   margin-bottom: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-group {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Adjust as needed */
 }
 
 .button {
@@ -39,6 +62,15 @@ body {
   text-decoration: none;
   border-radius: 10px;
   border: none;
+  align-items: center;
+  margin-left: 10px; /* Add margin between buttons */
+}
+
+/* Unique class for the "Main Hub" button */
+.main-hub-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
 }
 
 .button:hover {
@@ -51,18 +83,3 @@ body {
   border-radius: 10px;
 }
 
-.input-group {
-  margin-bottom: 15px;
-}
-
-.input-field {
-  width: 80%;
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-}
-
-.input-field:focus {
-  outline: none;
-  border-color: rgba(69, 123, 157, 0.7);
-}
