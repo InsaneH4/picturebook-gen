@@ -1,5 +1,8 @@
 {
   "devDependencies": {
     "rimraf": "^5.0.1"
+  },
+  "dependencies": {
+    "react-router": "^6.16.0"
   }
 }
