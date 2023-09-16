@@ -11,6 +11,7 @@ const Home: React.FC = () => {
         <p className="text">
           Welcome to our interactive story creation platform! Children actively shape the story through choices, enhanced by gamification elements like rewards and badges. We prioritize education, aligning story generation with learning objectives. AI-powered guidance ensures positive choices, while parents can monitor their children's storytelling. Plus, we offer visual customization for a truly personalized experience. Join us and unleash creativity in a fun and educational way!
         </p>
+        <br/>
         <Link to="/signup" className="button">
           Sign Up
         </Link>
