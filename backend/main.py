@@ -1,7 +1,9 @@
 import replicate
 from flask import Flask
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 client = replicate.Client(api_token="r8_CLo7yb0uM3cYeHfPs1N7TyKme3Fg4z743YdrG")
 # prompt = input("Enter prompt: ")
 # result = client.run(
