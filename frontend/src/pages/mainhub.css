@@ -1,0 +1,78 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(45deg, #ff7e5f, #feb47b, #ff7e5f, #feb47b);
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+  }
+  
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  .container {
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    color: #333;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  .score {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .goals {
+    margin-top: 20px;
+  }
+  
+  .goals h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .goals ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .goals li {
+    margin-bottom: 10px;
+  }
+  
+  .goals li::before {
+    content: "•";
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 24px;
+    color: #007BFF;
+  }
+  
