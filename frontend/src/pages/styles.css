@@ -22,14 +22,20 @@ body {
   }
 }
 
-.header {
-  font-size: 2.5em;
+.prompt-input {
+  width: 80%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
   margin-bottom: 20px;
+  justify-content: center;
+  align-items: center;
 }
 
-.text {
-  font-size: 1.2em;
-  margin-bottom: 20px;
+.button-group {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Adjust as needed */
 }
 
 .button {
@@ -39,6 +45,8 @@ body {
   text-decoration: none;
   border-radius: 10px;
   border: none;
+  align-items: center;
+  margin-left: 10px; /* Add margin between buttons */
 }
 
 .button:hover {
@@ -51,18 +59,3 @@ body {
   border-radius: 10px;
 }
 
-.input-group {
-  margin-bottom: 15px;
-}
-
-.input-field {
-  width: 80%;
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-}
-
-.input-field:focus {
-  outline: none;
-  border-color: rgba(69, 123, 157, 0.7);
-}
