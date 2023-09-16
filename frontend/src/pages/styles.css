@@ -40,7 +40,7 @@ body {
 .button-group {
   display: flex;
   align-items: center;
-  justify-content: center; /* Adjust as needed */
+  justify-content: left; /* Adjust as needed */
 }
 
 .button {
@@ -49,7 +49,7 @@ body {
   padding: 10px 20px;
   text-decoration: none;
   border-radius: 10px;
-  justify-content: center;
+  justify-content: left;
   border: none;
   align-items: center;
   margin-right: 10px; /* Add margin between buttons */
@@ -76,7 +76,7 @@ body {
   justify-content: left;
   top: 0;
   left: 0; /* Adjust this value to control the width of the ribbon */
-  width: 15px; /* Adjust this value to control the width of the ribbon */
+  width: 10px; /* Adjust this value to control the width of the ribbon */
   height: 100%;
   background: rgba(255, 255, 255, 0.8); /* Match the background color */
 }

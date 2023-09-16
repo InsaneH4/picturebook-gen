@@ -1,4 +1,6 @@
 ﻿# picturebook-gen 
+openai API key: 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
+
 attributes:
 - Interactive story creation
     - Children actively contribute and shape the story through choices
