@@ -97,13 +97,7 @@ const MainHub = () => {
           }}
         >
           Submit
-        </button>
-        <img
-          id="aiImage"
-          width={250}
-          height={250}
-          src="https://pbxt.replicate.delivery/JtLeyaICNcT5LK0BNbBB0Jxu5M26HcsTnenxpCePHWTjvtJjA/out-0.png"
-        />
+        </button>        
       </div>
     </div>
   );
