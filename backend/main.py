@@ -2,7 +2,13 @@ import replicate
 import openai
 from flask import Flask, jsonify, request
 from flask_cors import CORS
+import os
+from unicodedata import name
+from urllib import response
+from google.cloud import texttospeech_v1
 
+os.environ['GOOGLE_APPLLICATION_CREDENTIALS'] = "picturebook-399214-561b4cc59b3b.json"
+client = texttospeech_v1.TextToSpeechClient()
 
 class Story:
     def __init__(self, topic, mc_info, text, img_prompt, img_url):
@@ -82,6 +88,7 @@ def mc_info(my_mc_info):
     my_story.mc_info = my_mc_info
     return {"mc_info": my_story.mc_info}
 
+<<<<<<< Updated upstream
 
 @app.route("/story_text/", methods=['GET', 'POST'])
 def story_text():
@@ -90,6 +97,36 @@ def story_text():
     # chat gpt magic
     my_story.text = chat(my_story.mc_info, my_story.topic).choices[0].text
     print(my_story.text)
+=======
+# This is where the text is received
+@app.route("/story_text/<character>&<goal>", methods=['GET', 'POST'])
+def story_text(character, goal):
+    # generate plot
+    print("Generating story...")
+    # chat gpt magic
+    my_story.text = chat(character, goal).choices[0].text
+    # Voice Synth Stuff
+    synthesis_input = texttospeech_v1.SynthesisInput(ssml = my_story.text)
+    voice = texttospeech_v1.VoiceSelectionParams(
+        language_code = 'en_au',
+        ssml_gender = texttospeech_v1.SsmlVoiceGender.FEMALE
+    )
+
+    print(client.list_voices)
+    audio_config = texttospeech_v1.AudioConfig(
+        audio_encoding  = texttospeech_v1.AudioEncoding.MP3
+    )
+
+
+    response1 = client.synthesize_speech(
+        input = synthesis_input,
+        voice = voice,
+        audio_config = audio_config
+    )
+
+    with open('audiobee.mp3', 'wb', )as output:
+        output.write(response1.audio_content)
+>>>>>>> Stashed changes
     return {"story_text": my_story.text}
 
 
