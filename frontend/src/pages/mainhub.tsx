@@ -1,6 +1,7 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import "./styles.css";
 import { Link } from "react-router-dom";
+
 
 const MainHub = () => {
   const [userInput, setUserInput] = useState("");
@@ -22,6 +23,9 @@ const MainHub = () => {
     });
     const data = await response.json();
     console.log(data);
+
+    // Set the API response to state
+    setApiResponse(data);
   };
 
   return (
@@ -45,22 +49,25 @@ const MainHub = () => {
           />
         </div>
         <br />
-        <Link
-          to="/childmode"
+        <button
           className="button"
           onClick={async () => {
             await handleTopicSubmit();
           }}
         >
           Submit
-        </Link>
+        </button>
         {/* Display API response */}
         {apiResponse && (
           <div className="api-response">
-            API Response: {apiResponse.topic}{" "}
-            {/* Adjust this based on your API response structure */}
+            API Response: {apiResponse.topic} {/* Adjust this based on your API response structure */}
           </div>
         )}
+
+        {/* Link to Child component */}
+        <Link to="/childmode" className="button">
+          Go to Child
+        </Link>
       </div>
     </div>
   );
