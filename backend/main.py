@@ -33,10 +33,10 @@ my_story = Story("no topic", "no mc_info", "no text", "no prompt", "no url")
 def chat(character, goal):
     return openai.Completion.create(
         model="gpt-3.5-turbo",
-        prompt="write the beginning of a story about a character " + character + "learning about " + goal +
+        prompt="make a simple and short story, write the beginning of a story about a character " + character + "learning about " + goal +
         "end with a scenario where the character needs to make a decision regarding what they are learning about",
         temperature=0.7,
-        max_tokens=200,
+        max_tokens=400,
         top_p=1,
         frequency_penalty=0,
         presence_penalty=0,
