@@ -29,7 +29,14 @@ const Story = () => {
     <body>
       <div className="storybody">
         <div className="content">
-          <h1 className="header">This is OurBook</h1>
+          <h1 className="header">This is OurBook<hr /></h1>
+          <p>
+            <ul>
+              <li>Click 'Generate story' once, multiple clicks will restart the process</li>
+              <li>Please allow for the program to generate, may take up to 90 seconds</li>
+              <li>Inappropriate content will not generate</li>
+            </ul>
+          </p>
           <button className="button" onClick={generateStory}>
             Generate story
           </button>

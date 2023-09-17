@@ -26,6 +26,7 @@ function ChildMode() {
   };
 
   return (
+  <body>
     <div className="child-mode-body">
       <div className="content">
         <h1>
@@ -61,6 +62,7 @@ function ChildMode() {
         </div>
       </div>
     </div>
+    </body>
   );
 }
 

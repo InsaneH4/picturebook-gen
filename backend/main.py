@@ -6,6 +6,8 @@ from flask_cors import CORS
 import os
 from unicodedata import name
 from urllib import response
+
+openai.api_key = "pk-kZNLLuaOkcMCCrqifAxAOFiXFIZtmtmdIhhlUzuTpLzwQaBm"
 # from google.cloud import texttospeech_v1
 
 # os.environ['GOOGLE_APPLLICATION_CREDENTIALS'] = "picturebook-399214-ec6e8f8cfbd4.json"
@@ -28,7 +30,6 @@ class Story:
 
 app = Flask(__name__)
 CORS(app)
-openai.api_key = "pk-kZNLLuaOkcMCCrqifAxAOFiXFIZtmtmdIhhlUzuTpLzwQaBm"
 # morrigan -> pk-kZNLLuaOkcMCCrqifAxAOFiXFIZtmtmdIhhlUzuTpLzwQaBm
 # sam -> "pk-bAAvcNSLkIImdCjCpocEoXswrexCPXVtZdOYWaapPQgtUJsx"
 openai.api_base = 'https://api.pawan.krd/pai-001-light-beta/v1'
