@@ -1,4 +1,5 @@
 import replicate
+import time
 import openai
 from flask import Flask, jsonify, request
 from flask_cors import CORS
@@ -121,6 +122,7 @@ def story_gen():
     # chat gpt magic
     my_story.text = story_gpt(my_story.mc_info, my_story.topic).choices[0].text
     print(my_story.text)
+    time.sleep(5)
     print("Summarizing story: ")
     my_story.summary = summary_gpt(my_story.text).choices[0].text
     print(my_story.summary)
