@@ -21,7 +21,7 @@ const MainHub = () => {
       body: "pls work",
     });
     const data = await response.json();
-    console.log(data);    
+    console.log(data);
   };
 
   return (
@@ -54,11 +54,11 @@ const MainHub = () => {
         >
           Submit
         </Link>
-
         {/* Display API response */}
         {apiResponse && (
           <div className="api-response">
-            API Response: {apiResponse.topic} {/* Adjust this based on your API response structure */}
+            API Response: {apiResponse.topic}{" "}
+            {/* Adjust this based on your API response structure */}
           </div>
         )}
       </div>

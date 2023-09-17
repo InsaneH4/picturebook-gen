@@ -16,10 +16,10 @@ class Story:
         return f"Topic: {self.topic}\nMC Info: {self.mc_info}\nText: {self.text}\nImage Prompt: {self.img_prompt}\nImage URL: {self.img_url}"
 
 
-openai.api_key = "pk-bAAvcNSLkIImdCjCpocEoXswrexCPXVtZdOYWaapPQgtUJsx"
-openai.api_base = 'https://api.pawan.krd/pai-001-light-beta/v1'
 app = Flask(__name__)
 CORS(app)
+openai.api_key = "pk-bAAvcNSLkIImdCjCpocEoXswrexCPXVtZdOYWaapPQgtUJsx"
+openai.api_base = 'https://api.pawan.krd/pai-001-light-beta/v1'
 client = replicate.Client(api_token="r8_CLo7yb0uM3cYeHfPs1N7TyKme3Fg4z743YdrG")
 # prompt = input("Enter prompt: ")
 # result = client.run(
@@ -44,8 +44,8 @@ def chat(character, goal):
     )
 
 
-chat_result = chat("Joe the dog", "patience").choices[0].text
-print(chat_result)
+# chat_result = chat("Joe the dog", "patience").choices[0].text
+# print(chat_result)
 
 
 def stable_diff(prompt):
@@ -83,12 +83,13 @@ def mc_info(my_mc_info):
     return {"mc_info": my_story.mc_info}
 
 
-@app.route("/story_text/<character>&<goal>", methods=['GET', 'POST'])
-def story_text(character, goal):
+@app.route("/story_text/", methods=['GET', 'POST'])
+def story_text():
     # generate plot
     print("Generating story...")
     # chat gpt magic
-    my_story.text = chat(character, goal).choices[0].text
+    my_story.text = chat(my_story.mc_info, my_story.topic).choices[0].text
+    print(my_story.text)
     return {"story_text": my_story.text}
 
 
