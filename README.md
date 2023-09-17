@@ -2,14 +2,14 @@
 Welcome to OurBook!
 
 To get started:
-> generate your OpenAI API key and paste it into backend/main.py
-> open up two terminal windows
+- generate your OpenAI API key and paste it into backend/main.py
+- open up two terminal windows
 
 for the first window:
 cd frontend
 npm install
 npm run dev
-> open the locally hosted link in your browser
+- open the locally hosted link in your browser
 
 for the second window:
 cd backend
