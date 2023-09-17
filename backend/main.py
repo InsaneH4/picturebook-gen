@@ -28,7 +28,7 @@ class Story:
 
 app = Flask(__name__)
 CORS(app)
-openai.api_key = "pk-bAAvcNSLkIImdCjCpocEoXswrexCPXVtZdOYWaapPQgtUJsx"
+openai.api_key = "pk-kZNLLuaOkcMCCrqifAxAOFiXFIZtmtmdIhhlUzuTpLzwQaBm"
 # morrigan -> pk-kZNLLuaOkcMCCrqifAxAOFiXFIZtmtmdIhhlUzuTpLzwQaBm
 # sam -> "pk-bAAvcNSLkIImdCjCpocEoXswrexCPXVtZdOYWaapPQgtUJsx"
 openai.api_base = 'https://api.pawan.krd/pai-001-light-beta/v1'
@@ -46,9 +46,7 @@ my_story = Story("no topic", "no mc_info", "no text",
 def story_gpt(character, goal):
     return openai.Completion.create(
         model="gpt-3.5-turbo",
-        prompt="make a short educational story less than 10 sentences (required!!) about a character " +
-        character + " who is learning about " + goal +
-        " this will be used to teach children the same thing.",
+        prompt="make a short educational story less than 20 sentences (required!!) about "+ goal +" using a character " + character + " this will be used to teach children the same thing.",
         temperature=0.7,
         max_tokens=400,
         top_p=1,
@@ -63,7 +61,7 @@ def summary_gpt(story):
         model="gpt-3.5-turbo",
         prompt="generate a prompt to be a cover illustration for this story, must be a drawing: " + story,
         temperature=0.7,
-        max_tokens=200,
+        max_tokens=100,
         top_p=1,
         frequency_penalty=0,
         presence_penalty=0,
@@ -125,10 +123,7 @@ def story_gen():
     my_story.text = story_gpt(my_story.mc_info, my_story.topic).choices[0].text
     print(my_story.text)
     time.sleep(5)
-    print("Summarizing story: ")
-    my_story.summary = summary_gpt(my_story.text).choices[0].text
-    print(my_story.summary)
-    my_story.img_url = stable_diff(my_story.summary)
+    my_story.img_url = stable_diff(my_story.text)
     print(my_story.img_url)
     # synthesis_input = texttospeech_v1.SynthesisInput(ssml=my_story.text)
     # voice = texttospeech_v1.VoiceSelectionParams(
@@ -147,7 +142,7 @@ def story_gen():
     # my_story.audio = response1.audio_content
     # with open('audiobee.mp3', 'wb', )as output:
     #     output.write(response1.audio_content)
-    return {"story_text": my_story.text, "story_summary": my_story.summary, "image_url": my_story.img_url}
+    return {"story_text": my_story.text, "image_url": my_story.img_url}
 
 
 @app.route("/story_info/")
