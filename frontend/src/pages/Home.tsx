@@ -11,8 +11,8 @@ const Home: React.FC = () => {
         <p className="text">
         </p>
         <br/>
-        <Link to="/signup" className="button">
-          Sign Up
+        <Link to="/mainhub" className="button">
+          Get Started
         </Link>
       </div>
     </div>

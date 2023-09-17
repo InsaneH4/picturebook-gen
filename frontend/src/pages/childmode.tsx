@@ -29,7 +29,7 @@ function ChildMode() {
     <div className="child-mode-body">
       <div className="content">
         <h1>
-          Child Mode
+          Character Creation
           <hr />
         </h1>
         <div className="child-mode-prompt">

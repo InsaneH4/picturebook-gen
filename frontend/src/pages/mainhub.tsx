@@ -32,7 +32,7 @@ const MainHub = () => {
           <hr />
         </h1>
         Parents, what are you hoping to teach your little one with this story?
-        <br />
+        <br/>
         <br />
         <input
           className="prompt-input"

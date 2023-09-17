@@ -1,4 +1,5 @@
 import replicate
+import time
 import openai
 from flask import Flask, jsonify, request
 from flask_cors import CORS
@@ -45,8 +46,7 @@ my_story = Story("no topic", "no mc_info", "no text",
 def story_gpt(character, goal):
     return openai.Completion.create(
         model="gpt-3.5-turbo",
-        prompt="make a short story less than 5 sentences (required!!), write the beginning of a story about a character " + character + "learning about " + goal +
-        "end with a scenario where the character needs to make a decision regarding what they are learning about",
+        prompt="make a short educational story less than 20 sentences (required!!) about a character " + character + " who is learning about " + goal + " this will be used to teach children the same thing.",
         temperature=0.7,
         max_tokens=400,
         top_p=1,
@@ -122,6 +122,7 @@ def story_gen():
     # chat gpt magic
     my_story.text = story_gpt(my_story.mc_info, my_story.topic).choices[0].text
     print(my_story.text)
+    time.sleep(5)
     print("Summarizing story: ")
     my_story.summary = summary_gpt(my_story.text).choices[0].text
     print(my_story.summary)
