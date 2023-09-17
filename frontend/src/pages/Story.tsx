@@ -1,48 +1,32 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./styles.css";
 
 const Story = () => {
-  //get topic and character info from backend
-  let myStory = {
-    story_text: " ",
-    story_summary: " ",
-    image_url: " ",
-  };  
-  let storyStrArr = [];
+  const [storyText, setStoryText] = useState("");
+
   const generateStory = async () => {
     const response = await fetch("http://127.0.0.1:5000/story_gen/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: "pls work",
+      body: JSON.stringify({}), // Sending an empty JSON object as the body
     });
-    await response.json().then((data) => (myStory = data));
-    return myStory;
+
+    if (response.ok) {
+      const data = await response.json();
+      setStoryText(data.story_text);
+    } else {
+      console.error("Failed to generate story");
+    }
   };
-  // const generateSummary = async () => {
-  //   const response = await fetch("http://127.0.0.1:5000/summarize_story/", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: "pls work",
-  //   });
-  //   await response.json().then((data) => (summaryText = data));
-  //   return summaryText;
-  // };
+
   return (
     <div className="body">
       <div className="content">
         <h1 className="header">It's storytime mf</h1>
-        <p className="text">Hello world</p>
-        <button
-          className="button"
-          onClick={async () => {
-            myStory = await generateStory();
-            console.log(myStory);
-          }}
-        >
+        <p className="text">{storyText}</p>
+        <button className="button" onClick={generateStory}>
           Generate story
         </button>
       </div>
@@ -51,3 +35,4 @@ const Story = () => {
 };
 
 export default Story;
+
