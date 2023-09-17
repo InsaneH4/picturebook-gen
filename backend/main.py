@@ -75,7 +75,7 @@ def topic(my_topic):
     return {"topic": my_story.topic}
 
 
-@app.route("/mc_info/<my_mc_info>")
+@app.route("/mc_info/<my_mc_info>", methods=['GET', 'POST'])
 def mc_info(my_mc_info):
     print("Getting mc_info: ", my_mc_info)
     my_story.mc_info = my_mc_info

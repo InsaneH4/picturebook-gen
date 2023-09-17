@@ -18,7 +18,7 @@ const MainHub = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: "pls work",
+      body: userInput,
     });
     const data = await response.json();
     console.log(data);    
