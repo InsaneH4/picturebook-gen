@@ -2,7 +2,13 @@ import replicate
 import openai
 from flask import Flask, jsonify, request
 from flask_cors import CORS
+import os
+from unicodedata import name
+from urllib import response
+from google.cloud import texttospeech_v1
 
+os.environ['GOOGLE_APPLLICATION_CREDENTIALS'] = "picturebook-399214-561b4cc59b3b.json"
+client = texttospeech_v1.TextToSpeechClient()
 
 class Story:
     def __init__(self, topic, mc_info, text, summary, img_prompt, img_url):
@@ -103,6 +109,7 @@ def mc_info(my_mc_info):
     print("Getting mc_info: ", my_mc_info)
     my_story.mc_info = my_mc_info
     return {"mc_info": my_story.mc_info}
+
 
 
 @app.route("/story_gen/", methods=['GET', 'POST'])
