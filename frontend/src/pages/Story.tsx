@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./styles.css";
 
 const Story = () => {
@@ -42,3 +42,4 @@ const Story = () => {
 };
 
 export default Story;
+  
