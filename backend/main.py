@@ -5,10 +5,10 @@ from flask_cors import CORS
 import os
 from unicodedata import name
 from urllib import response
-#from google.cloud import texttospeech_v1
+# from google.cloud import texttospeech_v1
 
-#os.environ['GOOGLE_APPLLICATION_CREDENTIALS'] = "picturebook-399214-ec6e8f8cfbd4.json"
-#client = texttospeech_v1.TextToSpeechClient()
+# os.environ['GOOGLE_APPLLICATION_CREDENTIALS'] = "picturebook-399214-ec6e8f8cfbd4.json"
+# client = texttospeech_v1.TextToSpeechClient()
 
 
 class Story:
@@ -124,7 +124,7 @@ def story_gen():
     print("Summarizing story: ")
     my_story.summary = summary_gpt(my_story.text).choices[0].text
     print(my_story.summary)
-    #my_story.img_url = stable_diff(my_story.summary)
+    # my_story.img_url = stable_diff(my_story.summary)
 
     # synthesis_input = texttospeech_v1.SynthesisInput(ssml=my_story.text)
     # voice = texttospeech_v1.VoiceSelectionParams(
