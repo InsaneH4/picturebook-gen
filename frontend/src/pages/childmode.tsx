@@ -24,13 +24,13 @@ function ChildMode() {
           <br/>
         <input className="prompt-input"
           type="text"
-          placeholder="Finish the prompt"
+          placeholder="Amanda the fearsome dragon"
           value={storyPrompt}
           onChange={handlePromptChange}/>
         </div>
         <div className="button-group">
           <Link to="/mainhub" className="button">
-            Go to Main Hub
+            Go back
           </Link>
           <Link to="/mainhub" className="button">
             Start
