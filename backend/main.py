@@ -46,7 +46,7 @@ my_story = Story("no topic", "no mc_info", "no text",
 def story_gpt(character, goal):
     return openai.Completion.create(
         model="gpt-3.5-turbo",
-        prompt="make a short educational story less than 20 sentences (required!!) about a character " + character + " who is learning about " + goal + " this will be used to teach children the same thing.",
+        prompt="make a short educational story less than 20 sentences (required!!) about "+ goal +" using a character " + character + " this will be used to teach children the same thing.",
         temperature=0.7,
         max_tokens=400,
         top_p=1,

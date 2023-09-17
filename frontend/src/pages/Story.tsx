@@ -41,7 +41,7 @@ const Story = () => {
         </div>
       </div>
         <div className="storycontent-box">
-          <p className="text">{storyText}</p>
+          <p className="story-text">{storyText}</p>
         </div>
     </body>
   );
