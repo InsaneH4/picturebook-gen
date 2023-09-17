@@ -5,10 +5,10 @@ from flask_cors import CORS
 import os
 from unicodedata import name
 from urllib import response
-from google.cloud import texttospeech_v1
+# from google.cloud import texttospeech_v1
 
-os.environ['GOOGLE_APPLLICATION_CREDENTIALS'] = "picturebook-399214-561b4cc59b3b.json"
-client = texttospeech_v1.TextToSpeechClient()
+# os.environ['GOOGLE_APPLLICATION_CREDENTIALS'] = "picturebook-399214-561b4cc59b3b.json"
+# client = texttospeech_v1.TextToSpeechClient()
 
 
 class Story:
@@ -38,7 +38,7 @@ client = replicate.Client(api_token="r8_CLo7yb0uM3cYeHfPs1N7TyKme3Fg4z743YdrG")
 # print(result)
 
 my_story = Story("no topic", "no mc_info", "no text",
-                 "no summary", "no prompt", "no url")
+                 "no summary", "no prompt", "no url", "no audio")
 
 
 def story_gpt(character, goal):
