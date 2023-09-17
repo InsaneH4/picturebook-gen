@@ -51,12 +51,11 @@ function ChildMode() {
             Go back
           </Link>
           <Link
-            to="/mainhub"
+            to="/Story"
             className="button"
             onClick={async () => {
               await handleCharacterSubmit();
-            }}
-          >
+            }}>
             Start
           </Link>
         </div>
