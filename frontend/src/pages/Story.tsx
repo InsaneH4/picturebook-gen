@@ -6,6 +6,7 @@ const Story = () => {
   let storyText = {
     story_text: " ",
   };
+  let text = " ";
   let storyStrArr = [];
   const generateStory = async () => {
     const response = await fetch("http://127.0.0.1:5000/story_text/", {
@@ -26,8 +27,7 @@ const Story = () => {
         <button
           className="button"
           onClick={async () => {
-            storyText = await generateStory();
-            let text = " ";
+            storyText = await generateStory();            
             text = storyText.story_text;
             console.log(text);
             storyStrArr = text.split("\n");
