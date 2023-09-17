@@ -10,6 +10,7 @@ from google.cloud import texttospeech_v1
 os.environ['GOOGLE_APPLLICATION_CREDENTIALS'] = "picturebook-399214-561b4cc59b3b.json"
 client = texttospeech_v1.TextToSpeechClient()
 
+
 class Story:
     def __init__(self, topic, mc_info, text, summary, img_prompt, img_url, audio):
         self.topic = topic
@@ -19,7 +20,6 @@ class Story:
         self.img_prompt = img_prompt
         self.img_url = img_url
         self.audio = audio
-
 
     def __str__(self, topic, mc_info, text, summary, img_prompt, img_url):
         return f"Topic: {self.topic}\nMC Info: {self.mc_info}\nText: {self.text}\nSummary: {self.summary}\nImage Prompt: {self.img_prompt}\nImage URL: {self.img_url}"
@@ -113,7 +113,6 @@ def mc_info(my_mc_info):
     return {"mc_info": my_story.mc_info}
 
 
-
 @app.route("/story_gen/", methods=['GET', 'POST'])
 def story_gen():
     # generate plot
@@ -125,30 +124,31 @@ def story_gen():
     my_story.summary = summary_gpt(my_story.text).choices[0].text
     my_story.img_url = stable_diff(my_story.summary)
 
-    synthesis_input = texttospeech_v1.SynthesisInput(ssml=text)
+    # synthesis_input = texttospeech_v1.SynthesisInput(ssml=text)
 
-    voice = texttospeech_v1.VoiceSelectionParams(
-        language_code = 'en_au',
-        ssml_gender = texttospeech_v1.SsmlVoiceGender.FEMALE
-    )
+    # voice = texttospeech_v1.VoiceSelectionParams(
+    #   language_code='en_au',
+    #   ssml_gender=texttospeech_v1.SsmlVoiceGender.FEMALE
+    # )
 
-    print(client.list_voices)
-    audio_config = texttospeech_v1.AudioConfig(
-        audio_encoding  = texttospeech_v1.AudioEncoding.MP3
-    )
+    # print(client.list_voices)
+    # audio_config = texttospeech_v1.AudioConfig(
+    #   audio_encoding=texttospeech_v1.AudioEncoding.MP3
+    # )
 
-    response1 = client.synthesize_speech(
-        input = synthesis_input,
-        voice = voice,
-        audio_config = audio_config
-    )
+    # response1 = client.synthesize_speech(
+    #   input=synthesis_input,
+    #   voice=voice,
+    #  audio_config=audio_config
+    # )
 
-    my_story.audio = response1.audio_content
+    # my_story.audio = response1.audio_content
 
-    with open('audiobee.mp3', 'wb', )as output:
-        output.write(response1.audio_content)
+    # with open('audiobee.mp3', 'wb', )as output:
+    # output.write(response1.audio_content)
 
-    return {"story_text": my_story.text, "story_summary": my_story.summary, "image_url": my_story.img_url, "audio":my_story.audio}
+    # "audio": my_story.audio}
+    return {"story_text": my_story.text, "story_summary": my_story.summary, "image_url": my_story.img_url, }
 
 
 @app.route("/story_info/")
