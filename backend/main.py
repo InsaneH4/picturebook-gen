@@ -28,6 +28,7 @@ class Story:
 app = Flask(__name__)
 CORS(app)
 openai.api_key = "pk-bAAvcNSLkIImdCjCpocEoXswrexCPXVtZdOYWaapPQgtUJsx"
+# morrigan -> pk-kZNLLuaOkcMCCrqifAxAOFiXFIZtmtmdIhhlUzuTpLzwQaBm
 openai.api_base = 'https://api.pawan.krd/pai-001-light-beta/v1'
 client = replicate.Client(api_token="r8_CLo7yb0uM3cYeHfPs1N7TyKme3Fg4z743YdrG")
 # prompt = input("Enter prompt: ")
