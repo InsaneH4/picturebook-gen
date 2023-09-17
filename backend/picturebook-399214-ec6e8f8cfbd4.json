@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "picturebook-399214",
+  "private_key_id": "ec6e8f8cfbd43087f91b39f357bdd986d1390c68",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCqxKAe3x72MD2s\njM4/LJ2pyhxSDUDLcXxUHXDmfN8qhHSNfKOG6otzrkTSal9tmdD/o7KMT6NKd7F6\nUn38Mpn1A5fALZgS6CrZr80AjdzitZxdH2gJt/WIF+IIxHniHnVfgfGF4ZvuINi3\nwAnx2/FV6EANBKo9MFSIhfklCbRU0O/XN9uH0yDKGVhYjckf0B//Gbv3wICKeGSP\nhlsfDpluVo5Ufj+KAy48SZ5vGvNGSIbYsViZSH1r0E4oFIYSIMrR9tL3E05dx14H\njkQcO3lW1k4kD3r8eJEQQQY9TvBAYWf+ne7II7+ifL7DssnLOagkpVahRY8M5vNT\nGkIaWUntAgMBAAECggEAATHBMiPyOR+1laaqU9GE5j4kIqIcfxHmsTVhxapht3Zx\noZORJ8K2H7WzrzCp3qqrgehY0z4RWUU36A4Cx8PPxR1LBLc9/Jyqe4YmrgEURGHJ\nyowC2k03CvmIDeG16GMwv5DB7lJIZa0SAI/NLs329+l7OxFpYneS1aZGwx2nbTHk\nPx/XCLyJ+cBWvH2Vp5/rI4VowCpMs4tVoOnrHh0gMtivc+7wCY6sqXW/yDLmTMhx\nuoe3WIYFDPBQBoNM0jyHxTMOawAvKL4e0zFh9zakrMCsOdtVZ8ism10yOPmtW0p4\nXEBgC9x5kSoubnKd2ZI3/gUdwC/lyO54zhed4UUZPwKBgQDWM/Dr2/zCOWCRZplI\nNWGzamikAAVEJsRIE1XJjWZoiH1PoQbbPUcBO6KkasaOHeU3gWIxozDE8drhjdLy\nED6jZQpT1r5OqVS+Fy2cJXdiPK70KO8i1e3LY8WlKk5fYvm7F8Uvqcvt5lOorRzr\nJZxG3v76W4VjZPlzme3mloOwvwKBgQDMFvz54uvFoi0jo/nlT6W3yg7dHZasKLSX\ng/H/od3bPR1YflbY6xoRfHw1fU/j/D3KYBcEbGv+r19Rcer44+Gqi7hEQ+hWEmsV\nm8dGzgvFhohueu9PZBA9yWkpKkrBNkRLHTTh6WKLntljx1NMGiLrl5PorcEnfPcy\nTB9SlhwEUwKBgGrJOjJbWYb6U8oo/AGjmzF2uvQHjpiLOw8zlHEGrScv5EjuXhyu\nT9etg0e0c4gmHz+soOdeE9IbQKNxsNg8gP20QZHKXNWaVUTvCS3u/7VZy16tiYo0\nXHgpJT9R+ABVt2ouT3+ThrbzPIG6y8/u0BoE0di+B6GllTasZo2uO7jBAoGAeLTL\n8FtmyN/vRJoSDa76u2XVPq/mUnJMxSQzt9ababSOq60lXmxGYbs3l0dDPfsM7KnC\nU0pw4RQGExyGNahJ6t1yIWXsfyOrk/8rcFQjIDM+c+FfspvjAzgha0hpKDcZUze1\n9DtdnmhX+KyGNodqyd4/i6lgiSNe7K+bAvRnI6MCgYEAuv2ScA0eellfNXiy9sgN\nCIKaJscJGOnXMay0frPTkE67cfB4LTDb3Yly+vDANEm5V9P64fOJWllXVmtEVp0K\nHJzlisRztM1VRMosYFl8OUU9/+TzVVYYKVQoFcb/KH5p3G4uIUb35/GbvaGeUUM/\nXEmFvuJlQaXCSu233V7e8Tc=\n-----END PRIVATE KEY-----\n",
+  "client_email": "picbookvoice@picturebook-399214.iam.gserviceaccount.com",
+  "client_id": "113673399163674882224",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/picbookvoice%40picturebook-399214.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
