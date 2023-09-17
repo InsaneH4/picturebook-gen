@@ -5,10 +5,10 @@ from flask_cors import CORS
 import os
 from unicodedata import name
 from urllib import response
-# from google.cloud import texttospeech_v1
+from google.cloud import texttospeech_v1
 
-# os.environ['GOOGLE_APPLLICATION_CREDENTIALS'] = "picturebook-399214-561b4cc59b3b.json"
-# client = texttospeech_v1.TextToSpeechClient()
+os.environ['GOOGLE_APPLLICATION_CREDENTIALS'] = "picturebook-399214-ec6e8f8cfbd4.json"
+client = texttospeech_v1.TextToSpeechClient()
 
 
 class Story:
@@ -58,7 +58,7 @@ def story_gpt(character, goal):
 def summary_gpt(story):
     return openai.Completion.create(
         model="gpt-3.5-turbo",
-        prompt="do a short summary of the story provided: " + story,
+        prompt="do a one sentence summary of the story provided: " + story,
         temperature=0.7,
         max_tokens=200,
         top_p=1,
@@ -123,33 +123,27 @@ def story_gen():
     print(my_story.text)
     print("Summarizing story: ")
     my_story.summary = summary_gpt(my_story.text).choices[0].text
-    my_story.img_url = stable_diff(my_story.summary)
+    print(my_story.summary)
+    #my_story.img_url = stable_diff(my_story.summary)
 
-    # synthesis_input = texttospeech_v1.SynthesisInput(ssml=text)
-
+    # synthesis_input = texttospeech_v1.SynthesisInput(ssml=my_story.text)
     # voice = texttospeech_v1.VoiceSelectionParams(
-    #   language_code='en_au',
-    #   ssml_gender=texttospeech_v1.SsmlVoiceGender.FEMALE
+    #     language_code='en_au',
+    #     ssml_gender=texttospeech_v1.SsmlVoiceGender.FEMALE
     # )
-
-    # print(client.list_voices)
+    # #print(client.list_voices)
     # audio_config = texttospeech_v1.AudioConfig(
-    #   audio_encoding=texttospeech_v1.AudioEncoding.MP3
+    #     audio_encoding=texttospeech_v1.AudioEncoding.MP3
     # )
-
     # response1 = client.synthesize_speech(
-    #   input=synthesis_input,
-    #   voice=voice,
-    #  audio_config=audio_config
+    #     input=synthesis_input,
+    #     voice=voice,
+    #     audio_config=audio_config
     # )
-
     # my_story.audio = response1.audio_content
-
     # with open('audiobee.mp3', 'wb', )as output:
-    # output.write(response1.audio_content)
-
-    # "audio": my_story.audio}
-    return {"story_text": my_story.text, "story_summary": my_story.summary, "image_url": my_story.img_url, }
+    #     output.write(response1.audio_content)
+    return {"story_text": my_story.text, "story_summary": my_story.summary, "image_url": my_story.img_url, "audio": my_story.audio}
 
 
 @app.route("/story_info/")
