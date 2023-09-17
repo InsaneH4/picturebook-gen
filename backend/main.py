@@ -88,7 +88,7 @@ def mc_info(my_mc_info):
     my_story.mc_info = my_mc_info
     return {"mc_info": my_story.mc_info}
 
-<<<<<<< Updated upstream
+
 
 @app.route("/story_text/", methods=['GET', 'POST'])
 def story_text():
@@ -97,7 +97,7 @@ def story_text():
     # chat gpt magic
     my_story.text = chat(my_story.mc_info, my_story.topic).choices[0].text
     print(my_story.text)
-=======
+
 # This is where the text is received
 @app.route("/story_text/<character>&<goal>", methods=['GET', 'POST'])
 def story_text(character, goal):
