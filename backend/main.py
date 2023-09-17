@@ -28,7 +28,7 @@ class Story:
 
 app = Flask(__name__)
 CORS(app)
-openai.api_key = "pk-kZNLLuaOkcMCCrqifAxAOFiXFIZtmtmdIhhlUzuTpLzwQaBm"
+openai.api_key = "pk-bAAvcNSLkIImdCjCpocEoXswrexCPXVtZdOYWaapPQgtUJsx"
 # morrigan -> pk-kZNLLuaOkcMCCrqifAxAOFiXFIZtmtmdIhhlUzuTpLzwQaBm
 # sam -> "pk-bAAvcNSLkIImdCjCpocEoXswrexCPXVtZdOYWaapPQgtUJsx"
 openai.api_base = 'https://api.pawan.krd/pai-001-light-beta/v1'
@@ -59,7 +59,7 @@ def story_gpt(character, goal):
 def summary_gpt(story):
     return openai.Completion.create(
         model="gpt-3.5-turbo",
-        prompt="do a one sentence description of this story: " + story,
+        prompt="generate a prompt to be a cover image for this story, must be an illustration: " + story,
         temperature=0.7,
         max_tokens=200,
         top_p=1,
@@ -126,8 +126,8 @@ def story_gen():
     print("Summarizing story: ")
     my_story.summary = summary_gpt(my_story.text).choices[0].text
     print(my_story.summary)
-    # my_story.img_url = stable_diff(my_story.summary)
-
+    my_story.img_url = stable_diff(my_story.summary)
+    print(my_story.img_url)
     # synthesis_input = texttospeech_v1.SynthesisInput(ssml=my_story.text)
     # voice = texttospeech_v1.VoiceSelectionParams(
     #     language_code='en_au',
@@ -145,7 +145,7 @@ def story_gen():
     # my_story.audio = response1.audio_content
     # with open('audiobee.mp3', 'wb', )as output:
     #     output.write(response1.audio_content)
-    return {"story_text": my_story.text, "story_summary": my_story.summary, "image_url": my_story.img_url, "audio": my_story.audio}
+    return {"story_text": my_story.text, "story_summary": my_story.summary, "image_url": my_story.img_url}
 
 
 @app.route("/story_info/")

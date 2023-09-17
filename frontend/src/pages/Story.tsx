@@ -17,6 +17,7 @@ const Story = () => {
 
     if (response.ok) {
       const data = await response.json();
+      console.log(data);
       setStoryText(data.story_text);
       setStorySummary(data.story_summary);
     } else {
@@ -48,4 +49,3 @@ const Story = () => {
 };
 
 export default Story;
-
