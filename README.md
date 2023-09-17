@@ -1,5 +1,6 @@
 ﻿# picturebook-gen 
-openai API key: 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
+openai API key: 
+pk-IxwZvTOEshpomvdzsHUJZXaADCaVoeUbOhJkMfWjlUEjsoWQ
 
 resources:
 https://platform.openai.com/docs/api-reference/introduction
