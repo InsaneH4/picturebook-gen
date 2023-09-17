@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 import "./styles.css";
 
 const Story = () => {
@@ -34,6 +35,9 @@ const Story = () => {
           <button className="button" onClick={generateStory}>
             Generate story
           </button>
+          <Link to="/mainhub" className="button">
+          New Story
+        </Link>
         </div>
       </div>
         <div className="storycontent-box">

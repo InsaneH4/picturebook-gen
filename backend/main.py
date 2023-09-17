@@ -45,9 +45,8 @@ my_story = Story("no topic", "no mc_info", "no text",
 def story_gpt(character, goal):
     return openai.Completion.create(
         model="gpt-3.5-turbo",
-        prompt="make a short story less than 5 sentences (required!!), write the beginning of a story about a character " + character + "learning about " + goal +
-        "end with a scenario where the character needs to make a decision regarding what they are learning about",
-        temperature=0.7,
+        prompt="make a short educational story less than 20 sentences (required!!) about a character " + character + " who is learning about " + goal + " this will be used to teach children the same thing.",
+        temperature=0.9,
         max_tokens=400,
         top_p=1,
         frequency_penalty=0,
@@ -59,7 +58,7 @@ def story_gpt(character, goal):
 def summary_gpt(story):
     return openai.Completion.create(
         model="gpt-3.5-turbo",
-        prompt="do a one sentence summary of the story provided: " + story,
+        prompt="do a one sentence description of this story: " + story,
         temperature=0.7,
         max_tokens=200,
         top_p=1,
