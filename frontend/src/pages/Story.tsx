@@ -3,22 +3,34 @@ import "./styles.css";
 
 const Story = () => {
   //get topic and character info from backend
-  let storyText = {
+  let myStory = {
     story_text: " ",
-  };
-  let text = " ";
+    story_summary: " ",
+    image_url: " ",
+  };  
   let storyStrArr = [];
   const generateStory = async () => {
-    const response = await fetch("http://127.0.0.1:5000/story_text/", {
+    const response = await fetch("http://127.0.0.1:5000/story_gen/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: "pls work",
     });
-    await response.json().then((data) => (storyText = data));
-    return storyText;
+    await response.json().then((data) => (myStory = data));
+    return myStory;
   };
+  // const generateSummary = async () => {
+  //   const response = await fetch("http://127.0.0.1:5000/summarize_story/", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: "pls work",
+  //   });
+  //   await response.json().then((data) => (summaryText = data));
+  //   return summaryText;
+  // };
   return (
     <div className="body">
       <div className="content">
@@ -27,11 +39,8 @@ const Story = () => {
         <button
           className="button"
           onClick={async () => {
-            storyText = await generateStory();            
-            text = storyText.story_text;
-            console.log(text);
-            storyStrArr = text.split("\n");
-            console.log(storyStrArr);
+            myStory = await generateStory();
+            console.log(myStory);
           }}
         >
           Generate story
@@ -42,4 +51,3 @@ const Story = () => {
 };
 
 export default Story;
-  
