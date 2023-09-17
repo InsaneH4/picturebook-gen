@@ -15,6 +15,7 @@ const Story = () => {
 
     if (response.ok) {
       const data = await response.json();
+      console.log(data);
       setStoryText(data.story_text);
     } else {
       console.error("Failed to generate story");
@@ -39,4 +40,3 @@ const Story = () => {
 };
 
 export default Story;
-
