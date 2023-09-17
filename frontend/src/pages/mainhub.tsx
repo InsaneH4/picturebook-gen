@@ -12,25 +12,16 @@ const MainHub = () => {
 
   const handleTopicSubmit = async () => {
     console.log(userInput + " submitted");
-    try {
-      // Make a POST request to send form data to the backend
-      const response = await fetch("http://127.0.0.1:5000/topic/" + userInput, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ data: "pls work" }), // Send data as JSON
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to submit the topic");
-      }
-
-      const data = await response.json();
-      setApiResponse(data); // Store the API response
-    } catch (error) {
-      console.error("Error submitting topic:", error);
-    }
+    //get request to send form data to backend
+    const response = await fetch("http://127.0.0.1:5000/topic/" + userInput, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: "pls work",
+    });
+    const data = await response.json();
+    console.log(data);    
   };
 
   return (

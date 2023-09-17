@@ -16,7 +16,8 @@ class Story:
         return f"Topic: {self.topic}\nMC Info: {self.mc_info}\nText: {self.text}\nImage Prompt: {self.img_prompt}\nImage URL: {self.img_url}"
 
 
-openai.api_key = "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"
+openai.api_key = "pk-bAAvcNSLkIImdCjCpocEoXswrexCPXVtZdOYWaapPQgtUJsx"
+openai.api_base = 'https://api.pawan.krd/pai-001-light-beta/v1'
 app = Flask(__name__)
 CORS(app)
 client = replicate.Client(api_token="r8_CLo7yb0uM3cYeHfPs1N7TyKme3Fg4z743YdrG")
@@ -29,21 +30,22 @@ client = replicate.Client(api_token="r8_CLo7yb0uM3cYeHfPs1N7TyKme3Fg4z743YdrG")
 my_story = Story("no topic", "no mc_info", "no text", "no prompt", "no url")
 
 
-def chat(prompt):
+def chat(character, goal):
     return openai.Completion.create(
-        engine="davinci",
-        prompt=prompt,
-        temperature=0.9,
-        max_tokens=150,
+        model="gpt-3.5-turbo",
+        prompt="write the beginning of a story about a character " + character + "learning about " + goal +
+        "end with a scenario where the character needs to make a decision regarding what they are learning about",
+        temperature=0.7,
+        max_tokens=200,
         top_p=1,
-        frequency_penalty=0.0,
-        presence_penalty=0.6,
-        stop=["\n"]
-    )["choices"][0]["text"]
+        frequency_penalty=0,
+        presence_penalty=0,
+        stop=["Human: ", "AI: "]
+    )
 
 
-# chat_result = chat("Hello world")
-# print(chat_result)
+chat_result = chat("Joe the dog", "patience").choices[0].text
+print(chat_result)
 
 
 def stable_diff(prompt):
@@ -71,26 +73,22 @@ def topic(my_topic):
 
     print("Getting topic: ", my_topic)
     my_story.topic = my_topic
-    # store on firebase
     return {"topic": my_story.topic}
 
 
-@app.route("/mc_info/<my_mc_info>")
+@app.route("/mc_info/<my_mc_info>", methods=['GET', 'POST'])
 def mc_info(my_mc_info):
     print("Getting mc_info: ", my_mc_info)
     my_story.mc_info = my_mc_info
-    # store on firebase
     return {"mc_info": my_story.mc_info}
 
 
-@app.route("/story_text/<my_text>")
-def story_text(my_text):
+@app.route("/story_text/<character>&<goal>", methods=['GET', 'POST'])
+def story_text(character, goal):
     # generate plot
-    print("Generating story")
+    print("Generating story...")
     # chat gpt magic
-    # text = " "
-    my_story.text = my_text
-    # store on firebase
+    my_story.text = chat(character, goal).choices[0].text
     return {"story_text": my_story.text}
 
 
