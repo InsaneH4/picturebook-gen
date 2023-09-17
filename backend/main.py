@@ -78,14 +78,14 @@ def stable_diff(prompt):
 # Generates ai image of scene
 
 
-@app.route("/imagegen/<my_prompt>", methods=['GET', 'POST'])
-def imagegen(my_prompt):
-    print("Generating image with prompt: ", my_prompt)
-    result = stable_diff(my_prompt)
-    my_story.img_url = result
-    my_story.img_prompt = my_prompt
-    print(result)
-    return {"image_url": my_story.img_url, "prompt": my_story.img_prompt}
+# @app.route("/imagegen/<my_prompt>", methods=['GET', 'POST'])
+# def imagegen(my_prompt):
+#     print("Generating image with prompt: ", my_prompt)
+#     result = stable_diff(my_prompt)
+#     my_story.img_url = result
+#     my_story.img_prompt = my_prompt
+#     print(result)
+#     return {"image_url": my_story.img_url, "prompt": my_story.img_prompt}
 
 
 # @app.route("/summarize_story/")
