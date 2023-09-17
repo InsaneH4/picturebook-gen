@@ -10,6 +10,25 @@ body {
   align-items: center;
 }
 
+.storybody {
+  float: left;
+  display: flex;
+  justify-content: space-between;
+}
+
+.storycontent-box {
+  /* Style for the content box to the right */
+  flex: 1;
+  float: right;
+  width: 500px;
+  padding: 10px;
+  justify-content: flex-end;
+  margin-left: 400px;
+  margin-right: 50px;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+}
+
 
 @keyframes gradient {
   0% {

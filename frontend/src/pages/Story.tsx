@@ -22,15 +22,19 @@ const Story = () => {
   };
 
   return (
-    <div className="body">
-      <div className="content">
-        <h1 className="header">It's storytime mf</h1>
-        <p className="text">{storyText}</p>
-        <button className="button" onClick={generateStory}>
-          Generate story
-        </button>
+    <body>
+      <div className="storybody">
+        <div className="content">
+          <h1 className="header">This is OurBook</h1>
+          <button className="button" onClick={generateStory}>
+            Generate story
+          </button>
+        </div>
       </div>
-    </div>
+        <div className="storycontent-box">
+          <p className="text">{storyText}</p>
+        </div>
+    </body>
   );
 };
 
