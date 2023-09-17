@@ -5,10 +5,10 @@ from flask_cors import CORS
 import os
 from unicodedata import name
 from urllib import response
-from google.cloud import texttospeech_v1
+#from google.cloud import texttospeech_v1
 
-os.environ['GOOGLE_APPLLICATION_CREDENTIALS'] = "picturebook-399214-ec6e8f8cfbd4.json"
-client = texttospeech_v1.TextToSpeechClient()
+#os.environ['GOOGLE_APPLLICATION_CREDENTIALS'] = "picturebook-399214-ec6e8f8cfbd4.json"
+#client = texttospeech_v1.TextToSpeechClient()
 
 
 class Story:
