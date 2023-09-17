@@ -11,13 +11,15 @@ os.environ['GOOGLE_APPLLICATION_CREDENTIALS'] = "picturebook-399214-561b4cc59b3b
 client = texttospeech_v1.TextToSpeechClient()
 
 class Story:
-    def __init__(self, topic, mc_info, text, summary, img_prompt, img_url):
+    def __init__(self, topic, mc_info, text, summary, img_prompt, img_url, audio):
         self.topic = topic
         self.mc_info = mc_info
         self.text = text
         self.summary = summary
         self.img_prompt = img_prompt
         self.img_url = img_url
+        self.audio = audio
+
 
     def __str__(self, topic, mc_info, text, summary, img_prompt, img_url):
         return f"Topic: {self.topic}\nMC Info: {self.mc_info}\nText: {self.text}\nSummary: {self.summary}\nImage Prompt: {self.img_prompt}\nImage URL: {self.img_url}"
@@ -79,14 +81,14 @@ def stable_diff(prompt):
 # Generates ai image of scene
 
 
-@app.route("/imagegen/<my_prompt>", methods=['GET', 'POST'])
-def imagegen(my_prompt):
-    print("Generating image with prompt: ", my_prompt)
-    result = stable_diff(my_prompt)
-    my_story.img_url = result
-    my_story.img_prompt = my_prompt
-    print(result)
-    return {"image_url": my_story.img_url, "prompt": my_story.img_prompt}
+# @app.route("/imagegen/<my_prompt>", methods=['GET', 'POST'])
+# def imagegen(my_prompt):
+#     print("Generating image with prompt: ", my_prompt)
+#     result = stable_diff(my_prompt)
+#     my_story.img_url = result
+#     my_story.img_prompt = my_prompt
+#     print(result)
+#     return {"image_url": my_story.img_url, "prompt": my_story.img_prompt}
 
 
 # @app.route("/summarize_story/")
@@ -114,7 +116,7 @@ def mc_info(my_mc_info):
 
 
 @app.route("/story_gen/", methods=['GET', 'POST'])
-def story_gen():    
+def story_gen():
     # generate plot
     print("Generating story...")
     # chat gpt magic
@@ -123,7 +125,31 @@ def story_gen():
     print("Summarizing story: ")
     my_story.summary = summary_gpt(my_story.text).choices[0].text
     my_story.img_url = stable_diff(my_story.summary)
-    return {"story_text": my_story.text, "story_summary": my_story.summary, "image_url": my_story.img_url}
+
+    synthesis_input = texttospeech_v1.SynthesisInput(ssml=text)
+
+    voice = texttospeech_v1.VoiceSelectionParams(
+        language_code = 'en_au',
+        ssml_gender = texttospeech_v1.SsmlVoiceGender.FEMALE
+    )
+
+    print(client.list_voices)
+    audio_config = texttospeech_v1.AudioConfig(
+        audio_encoding  = texttospeech_v1.AudioEncoding.MP3
+    )
+
+    response1 = client.synthesize_speech(
+        input = synthesis_input,
+        voice = voice,
+        audio_config = audio_config
+    )
+
+    my_story.audio = response1.audio_content
+
+    with open('audiobee.mp3', 'wb', )as output:
+        output.write(response1.audio_content)
+
+    return {"story_text": my_story.text, "story_summary": my_story.summary, "image_url": my_story.img_url, "audio":my_story.audio}
 
 
 @app.route("/story_info/")
